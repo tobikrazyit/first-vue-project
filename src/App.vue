@@ -1,14 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
-import Banner from './pages/Banner.vue';
-import About from './pages/About.vue';
-import Review from './pages/Review.vue';
-import Blog from './pages/Blog.vue';
-import Contact from './pages/Contact.vue';
-import Footer from './pages/Footer.vue';
 
 import {ref} from 'vue';
+import Footer from './pages/Footer.vue';
 
 // Reactive state for menu open/close
 const isMenuOpen = ref(false);
@@ -24,15 +17,15 @@ const toggleMenu = () => {
     <nav class="navbar">
       <div class="navbar-container">
         <div class="navbar-brand">
-          <strong class="text-3xl delicious">Delicious<span
-              class="text-orange-500 font-bold">Food</span></strong>
+          <strong class="text-3xl delicious">Delicious<span class="text-orange-500 font-bold">Food</span></strong>
         </div>
         <div class="navbar-links">
           <ul>
-            <li><a href="/">Home</a></li>
+            <RouterLink to="/">Home</RouterLink>
             <li><a href="/about">About</a></li>
             <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <RouterLink to="/register">Register</RouterLink>
+            <RouterLink to="/login">Login</RouterLink>
           </ul>
         </div>
         <div class="navbar-toggle" @click="toggleMenu">
@@ -52,13 +45,9 @@ const toggleMenu = () => {
     </nav>
   </header>
   <main>
-    <Banner />
-    <About />
-    <Review />
-    <Blog />
-    <Contact />
-    <Footer />
+    <RouterView/>
   </main>
+  <Footer/>
 </template>
 
 <style scoped>
